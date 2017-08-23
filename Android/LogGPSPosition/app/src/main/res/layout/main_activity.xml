@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dip"
+    tools:context="com.example.lora.loggpsposition.MainActivity">
+
+    <TextView
+        android:id="@+id/serverIpTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server IP and port:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/serverIpEt"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serverIpTv" />
+
+    <TextView
+        android:id="@+id/usernameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serverIpEt" />
+    <EditText
+        android:id="@+id/usernameEt"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTv" />
+
+    <TextView
+        android:id="@+id/passwdTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEt" />
+    <EditText
+        android:id="@+id/passwdEt"
+        android:layout_width="358dp"
+        android:inputType="textPassword"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwdTv" />
+
+    <TextView
+        android:id="@+id/topicTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MQTT publishing topic:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwdEt" />
+    <EditText
+        android:id="@+id/topicEt"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topicTv" />
+
+
+    <Button
+        android:id="@+id/connectBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Connect MQTT"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topicEt"/>
+
+    <!--<TextView
+        android:id="@+id/logIntervalTv"
+        android:layout_width="160dip"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Log interval[ms]:"
+        app:layout_constraintTop_toBottomOf="@id/connectBtn"
+        app:layout_constraintLeft_toLeftOf="parent" />-->
+    <TextView
+        android:id="@+id/logText"
+        android:layout_width="358dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Start/stop location logging:"
+        app:layout_constraintTop_toBottomOf="@+id/connectBtn"
+        app:layout_constraintLeft_toRightOf="parent"/>
+
+    <!--<EditText
+        android:id="@+id/logIntervalET"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:inputType="number"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logIntervalTv"/>-->
+    <!--<TextView
+        android:id="@+id/spaceSP"
+        android:layout_width="60dip"
+        android:layout_height="10dip"
+        app:layout_constraintTop_toBottomOf="@id/connectBtn"
+        app:layout_constraintLeft_toRightOf="parent" />-->
+    <Button
+        android:id="@+id/publishBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logText"/>
+
+    <ScrollView
+        android:id="@+id/losgSv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:background="#d9d9d9"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/publishBtn"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/loggerTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="LOGS:" />
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

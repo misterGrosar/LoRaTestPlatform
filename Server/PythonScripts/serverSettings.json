@@ -1,0 +1,18 @@
+{
+	"mosquitto":{
+		"topicPub": "lora/testPub",
+		"topicGPSLog": "lora/testGPSLog",
+		"topicTimeLog": "lora/testTimeLog",
+		"username": "",
+		"passwd": "",
+		"ip":"",
+		"port": 8883,
+		"keepAlive": 60
+	},
+	"db":{
+		"ip":"localhost",
+		"username": "",
+		"passwd": "",
+		"table": "lora"
+	}
+}

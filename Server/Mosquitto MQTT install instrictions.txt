@@ -1,0 +1,71 @@
+------------------------------------------------------
+How to install Mosquitto MQTT:
+------------------------------------------------------
+
+-------------- On Server ----------------
+*********** Installation *************
+- Add mosquitto repositories dev
+	& sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
+
+- Update repositories linux
+	& sudo apt-get update
+	
+- Install broker (server) mosquitto:
+	& sudo apt-get install mosquitto
+
+*********** Setup *************
+- Create a mosquitto user/password: the command below will create a user <username>:
+	$ mosquitto_passwd -c /etc/mosquitto/pwfile <username>
+you will be prompted to enter a password.
+
+- Create the directory where persistence db files will be stored, change owner to mosquitto:
+	& mkdir /var/lib/mosquitto/
+    & chown mosquitto:mosquitto /var/lib/mosquitto/ -R
+
+- Create a config file by copying the example file:
+	& cp /etc/mosquitto/mosquitto.conf.example /etc/mosquitto/mosquitto.conf
+	& nano /etc/mosquitto/mosquitto.conf
+
+- At the end of the config file, add a block of all suggested config changes 
+	specific to your server (replace <yourIP> with the IP address of the server)
+
+listener 8883 <yourIP>
+persistence true
+persistence_location /var/lib/mosquitto/
+persistence_file mosquitto.db
+log_dest syslog
+log_dest stdout
+log_dest topic
+log_type error
+log_type warning
+log_type notice
+log_type information
+connection_messages true
+log_timestamp true
+allow_anonymous false
+password_file /etc/mosquitto/pwfile
+
+log_dest file /var/log/mosquitto/mosquitto.log
+
+- Finally be sure to run:
+	& /sbin/ldconfig
+	
+*********** Run server *************
+- Run the mosquitto server with this command:
+	& mosquitto -c /etc/mosquitto/mosquitto.conf  (use -d to run in background)
+
+	
+
+-------------- On Client ----------------
+This step is optional
+
+*********** Installation *************
+- Install mosquitto client
+	& apt-get install mosquitto-clients
+	
+*********** Test *************
+- Terinal 1:
+	& mosquitto_sub -h <server IP> -p <port> -v -t "your_topic_name" -u <username> -P <password> -d
+	
+- Terminal 2:
+	& mosquitto_pub -h <server IP> -p <port> -t "your_topic_name" -u <username> -P <password> -d -m "Hi!"

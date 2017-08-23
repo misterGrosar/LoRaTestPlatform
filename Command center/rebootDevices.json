@@ -1,0 +1,6 @@
+{
+	"devices":[
+		{"id": 1,"reboot": true},
+		{"id": 2,"reboot": false}
+	]
+}

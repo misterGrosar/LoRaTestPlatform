@@ -1,0 +1,27 @@
+{
+	"devices": [
+		{"id":1, "rec": true, "bidirectional": true, "setId": 1, "start": false, "restartT": true, "debug":true, "gpsLat":47.049558, "gpsLon": 14.468880, "locDesc":"Bidiredctional mobile node"}, 
+		{"id":2, "rec": false, "bidirectional": true, "setId": 1, "start": false, "restartT": true, "debug":true, "gpsLat":47.049558, "gpsLon": 14.468880, "locDesc":"Bidirectional staionary node"},
+		{"id":3, "rec": true, "bidirectional": false, "setId": 1, "start": false, "restartT": true, "debug":true, "gpsLat":47.049558, "gpsLon": 14.468880, "locDesc":"Controll receiver"}
+	],
+	"buffer":{"buffSize": 32},
+	"parameters": [
+		{	
+			"settingId": 1,
+			"bw": "7",
+			"sf": "10",
+			"crcOn": true,
+			"crcVal": "2",
+			"delay": "3000",
+			"lowFreq": false
+		},{
+			"settingId": 2,
+			"bw": "8",
+			"sf": "7",
+			"crcOn": true,
+			"crcVal": "4",
+			"delay": "1000",
+			"lowFreq":false
+		}
+	]
+}
